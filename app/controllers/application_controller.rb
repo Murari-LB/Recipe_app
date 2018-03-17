@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 
   private
   def set_user
-  	@user_email = current_user.email
+  	@user_email = current_user.email if current_user.present?
   end
 end
