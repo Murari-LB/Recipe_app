@@ -1,0 +1,32 @@
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+
+	<%= form_tag root_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
+		<p>
+			<span class="form-feild">
+				<%= text_field_tag :search,  nil, placeholder: "Search", class: "form-control" %>
+			</span>
+			<%#= text_field_tag :search,  nil, placeholder: "Search", class: "form-control" %>
+			<%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+		</p>
+	<%end%>	
+	<table class="table mmt-table" id="emp_table">
+		<thead>							
+			<tr>
+				<th>Dish Type</th>
+				<th>Actions</th> 
+			</tr>	
+		</thead>
+		<tbody>
+			<% @dish_types.each do |dish| %>
+			<tr>
+			
+ 				<td class="account_name"><%= dish %></td>
+				
+				<td class="actions">
+					<a href="<%= new_dish_path(dish_type: dish) %>" class="view" data-toggle="tooltip" data-placement="bottom" title="New Dish"><img src="/assets/list_user.png" /></a>
+				  </td>
+				</tr>
+			<% end %>						
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,24 @@
+<table class="table mmt-table" id="emp_table">
+		<thead>							
+			<tr>
+				<th>User Email</th>
+				<th>Dish Type</th>
+				<th>Recipe Type</th>
+				<th>User Group</th>
+				<th>Action</th>
+			</tr>	
+		</thead>
+		<tbody>
+			<% @dishes.each do |dish| %>
+			<tr>
+			
+ 				<td><%= dish.user.email %></td>
+ 				<td><%= dish.dish_type %></td>
+ 				<td><%= dish.recipe_type %></td>
+ 				<td><%= dish.user_group %></td>
+ 				<td><%= link_to 'Destroy', dish_path(dish),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+				</tr>
+			<% end %>						
+		</tbody>
+	</table>
